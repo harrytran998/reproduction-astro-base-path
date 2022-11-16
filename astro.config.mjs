@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config'
 import svelte from '@astrojs/svelte'
 import node from '@astrojs/node'
+import AstroUnocss from '@unocss/astro';
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,5 +15,5 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone',
   }),
-  integrations: [svelte()],
+  integrations: [AstroUnocss({ configFile: './unocss.config.ts' }), svelte()],
 })
