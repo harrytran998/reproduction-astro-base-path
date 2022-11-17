@@ -1,9 +1,36 @@
 ---
 import '../styles/common.css'
+
+const ENV = 'production';
+const GA_MEASUREMENT_ID = 'G-W5RJYG39BV';
+const GTM_ID = 'GTM-5M46W52';
 ---
 
 <html lang="en">
   <head>
+    <script type="text/partytown">
+      window.abc = 'xyz';
+    </script>
+    <script define:vars={{ GA_MEASUREMENT_ID }} type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        dataLayer.push(arguments);
+      };
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    </script>
+    <script define:vars={{ ENV, GTM_ID }} type="text/partytown">
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', GTM_ID);
+    </script>
     <title>Online Store</title>
     <style>
       h1 {

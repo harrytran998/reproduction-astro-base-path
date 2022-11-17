@@ -12,12 +12,12 @@
     "server": "node dist/server/entry.mjs"
   },
   "dependencies": {
-    "astro": "^1.6.8",
+    "astro": "^1.6.9",
     "svelte": "^3.48.0",
-    "@astrojs/node": "2.0.2",
+    "@astrojs/node": "^3.0.0",
+    "@astrojs/partytown": "^1.0.1",
     "@astrojs/svelte": "^1.0.2",
-    "concurrently": "^7.2.1",
-    "unocss": "^0.46.4",
+    "unocss": "^0.46.5",
     "vite-imagetools": "^4.0.4"
   }
 }
